@@ -1,10 +1,14 @@
 {application, nova_cowboy,
- [{description, "Run Nova on Cowboy"},
-  {vsn, git},
-  {registered, []},
+ [{description, "Run Nova on the Cowboy HTTP server"},
+  {vsn, "git"},
+  {registered, [nova_cowboy_sup]},
+  {mod, {nova_cowboy_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    ranch,
+    cowboy,
+    nova
    ]},
   {env, []},
   {modules, []},
